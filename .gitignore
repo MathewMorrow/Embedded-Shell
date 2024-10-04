@@ -1,0 +1,16 @@
+# Ignore build directories
+build/
+
+# Ignore compiled files
+*.o
+*.exe
+*.out
+
+# Ignore log files
+*.log
+
+# Ignore environment files
+.env
+
+# Ignore temporary files
+*~

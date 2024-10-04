@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "name": "ARMGCC",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "USE_HAL_DRIVER",
+                "STM32L476xx"
+            ],
+            "compilerPath": "${env:ARMGCC_DIR}/arm-none-eabi-gcc.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-arm",
+            "configurationProvider": "ms-vscode.makefile-tools",
+            "compilerArgs": [
+                "-mcpu=cortex-m4",
+                "-mthumb"
+            ]
+        }
+    ],
+    "version": 4
+}

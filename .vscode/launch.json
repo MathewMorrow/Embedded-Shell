@@ -1,0 +1,95 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Cortex Debug",
+            "cwd": "${workspaceFolder}",
+            "executable": "./build/STM32L476RG_EVAL_CubeMX_Test.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "runToEntryPoint": "main",
+            "servertype": "openocd",
+            "device": "STM32L476RG",
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32l4x.cfg"
+            ],
+            "svdFile": "./STM32L476.svd",
+            "gdbPath": "${env:ARMGCC_DIR}/arm-none-eabi-gdb",
+            "postLaunchCommands": [
+                "monitor reset init",    // Optional: Reset and initialize without halting
+                "monitor arm semihosting enable"  // Enable semihosting (if required)
+            ],
+            "postRestartCommands": [ // Commands run after restarting the debug session or target
+                "monitor reset init",    // Optional: Reset and initialize without halting
+                "monitor arm semihosting enable"  // Enable semihosting (if required)
+            ],
+            "preLaunchTask": "Make flash with OpenOCD"
+            //"showDevDebugOutput": "raw" //verbose GDB debug output
+        },
+        {
+            "name": "Cortex Attach",
+            "cwd": "${workspaceFolder}",
+            "executable": "./build/STM32L476RG_EVAL_CubeMX_Test.elf",
+            "request": "attach",
+            "type": "cortex-debug",
+            // "runToEntryPoint": "false",
+            "servertype": "openocd",
+            "device": "STM32L476RG",
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32l4x.cfg"
+            ],
+            "svdFile": "./STM32L476.svd",
+            "gdbPath": "${env:ARMGCC_DIR}/arm-none-eabi-gdb",
+            "preAttachCommands": [
+                //"monitor reset run"
+            ],
+            "postAttachCommands": [
+                //"monitor reset run"
+                "monitor resume"
+            ],
+            "postRestartCommands": [ // Commands run after restarting the debug session or target
+                //"monitor reset run",    // Optional: Reset and initialize without halting
+            ],
+
+            //"showDevDebugOutput": "raw" //verbose GDB debug output
+        },
+        {
+            "name": "Verbos Debug",
+            "cwd": "${workspaceFolder}",
+            "executable": "./build/STM32L476RG_EVAL_CubeMX_Test.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "runToEntryPoint": "main",
+            "servertype": "openocd",
+            "device": "STM32L476RG",
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32l4x.cfg"
+            ],
+            "svdFile": "./STM32L476.svd",
+            "gdbPath": "${env:ARMGCC_DIR}/arm-none-eabi-gdb",
+            "postLaunchCommands": [
+                "monitor reset init",    // Optional: Reset and initialize without halting
+                "monitor arm semihosting enable"  // Enable semihosting (if required)
+            ],
+            "postRestartCommands": [ // Commands run after restarting the debug session or target
+                "monitor reset init",    // Optional: Reset and initialize without halting
+                "monitor arm semihosting enable"  // Enable semihosting (if required)
+            ],
+            "preLaunchTask": "Make flash with OpenOCD",
+            "openOCDLaunchCommands": [
+    // "log_output openocd.log",
+    // "gdb_port 3333",
+    // "tcl_port 6666",
+    // "telnet_port 4444",
+    // "-d3"  // OpenOCD debug level set to 3 (more verbose)
+]
+        }
+
+    ]
+}

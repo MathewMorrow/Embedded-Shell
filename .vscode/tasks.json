@@ -1,0 +1,44 @@
+{
+    "tasks": [
+        {
+            "label": "Make all",
+            "type": "shell",
+            "group": "build",
+            "command": "make",
+            "args": [
+                "-j"
+            ]
+        },
+        {
+            "label": "Make clean",
+            "type": "shell",
+            "group": "build",
+            "command": "make",
+            "args": [
+                "clean"
+            ]
+        },
+        {
+            "label": "Clean and Build All",
+            "type": "shell",
+            "group": "build",
+            "command": "make clean && make all -j"
+        },
+        {
+            "label": "Make flash with OpenOCD",
+            "type": "shell",
+            "group": "build",
+            "command": "make",
+            "args": [
+                "flash"
+            ]
+        },
+        {
+            "label": "Make Release",
+            "type": "shell",
+            "group": "build",
+            "command": "make BUILD_TYPE=RELEASE_OPT -j",
+        },
+    ],
+    "version": "2.0.0"
+}
