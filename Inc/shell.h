@@ -15,7 +15,7 @@
 // 2. **Receiving Data:**
 //    Place the 'shell_receive_char(char c)' function inside your receive interrupt handler to pass incoming characters 
 //    directly to the shell for processing.
-//    
+//
 //    Example for use in Rx IRQ handler:
 //    void USARTx_IRQHandler(void) {
 //        if (rx interrupt condition) {
@@ -27,6 +27,11 @@
 // 3. **Non-Blocking Transmission:**
 //    Ensure that the `SHELL_NON_BLOCKING` is defined in the source file
 //    Place the shell_task_handler() to be run periodically to handle shell commands asynchronously
+//
+// 4. **Register New Commands In The shell_commands.c Source File:**
+//    Add any new command into the shellCommand_t s_shell_commands_array[]
+//    Create the function decleration and definition for the new command if needed
+//    Add external dependencies to the shell_commands.c as needed
 
 // Definition for each shell command
 // {command, handler function, help string}
