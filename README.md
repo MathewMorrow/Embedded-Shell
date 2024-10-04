@@ -15,13 +15,13 @@ HOW TO USE THE EMBEDDED SHELL COMMAND LINE
    Place the 'shell_receive_char(char c)' function inside your receive interrupt handler to pass incoming characters 
    directly to the shell for processing.
    
-   Example for use in Rx IRQ handler:
-   void USARTx_IRQHandler(void) {
-       if (rx interrupt condition) {
-           char c = receive_character_from_uart();
-           shell_receive_char(c);
-       }
-   }
+   Example for use in Rx IRQ handler:  
+   void USARTx_IRQHandler(void) {  
+       if (rx interrupt condition) {  
+           char c = receive_character_from_uart();  
+           shell_receive_char(c);  
+       }  
+   }  
 
 3. **Non-Blocking Transmission:**
    Ensure that the `SHELL_NON_BLOCKING` is defined in the source file
